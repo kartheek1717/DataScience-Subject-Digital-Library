@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #F6FAFC;
+    color: #122333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+  }
+
+  .dark body {
+    background-color: #07141F;
+    color: #F8FAFC;
+  }
+}
+
+/* Subtle background grid pattern for high-tech SaaS ambiance */
+.bg-grid-pattern {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 159, 154, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 159, 154, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(20, 184, 166, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 184, 166, 0.035) 1px, transparent 1px);
+}
+
+/* Custom premium scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 159, 154, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 184, 166, 0.6);
+}
+
+/* Glassmorphism card helpers */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(227, 237, 242, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(11, 37, 56, 0.04);
+}
+
+.dark .glass-card {
+  background: rgba(13, 30, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.35);
+}
+
+/* Smooth glow effects */
+.glow-teal {
+  box-shadow: 0 0 24px rgba(0, 159, 154, 0.22);
+}
+
+.glow-blue {
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.2);
+}
+
+/* Custom subtle card hover elevation */
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(11, 37, 56, 0.08);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.45);
+}
+
+/* Code editor line highlight */
+.code-line-number {
+  user-select: none;
+}
+
+/* Print optimization for CV / Resume */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  header, aside, .no-print, .bg-grid-pattern {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 3D Modern Animation & Perspective Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(4deg) rotateY(-4deg);
+  }
+  50% {
+    transform: translateY(-9px) rotateX(-3deg) rotateY(5deg);
+  }
+}
+
+@keyframes float3dSlow {
+  0%, 100% {
+    transform: translateY(0px) rotateX(-5deg) rotateY(6deg);
+  }
+  50% {
+    transform: translateY(-11px) rotateX(4deg) rotateY(-5deg);
+  }
+}
+
+@keyframes spinSparkle {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes gridScan3d {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 64px;
+  }
+}
+
+.animate-float-3d {
+  animation: float3d 5s ease-in-out infinite;
+}
+
+.animate-float-3d-slow {
+  animation: float3dSlow 7s ease-in-out infinite;
+}
+
+.animate-spin-sparkle {
+  animation: spinSparkle 4s ease-in-out infinite;
+}
+
+.text-3d-title {
+  text-shadow: 
+    0 1px 0 #0284c7, 
+    0 2px 0 #0369a1, 
+    0 3px 0 #075985, 
+    0 4px 0 #0c4a6e, 
+    0 8px 16px rgba(2, 44, 74, 0.45);
+}
+
+.btn-3d-primary {
+  box-shadow: 0 4px 0 #0369a1, 0 10px 20px rgba(7, 89, 133, 0.4);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-3d-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #0369a1, 0 14px 26px rgba(7, 89, 133, 0.45);
+}
+
+.btn-3d-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #0369a1, 0 4px 10px rgba(7, 89, 133, 0.3);
+}
+
+.btn-3d-secondary {
+  box-shadow: 0 4px 0 rgba(2, 132, 199, 0.35), 0 8px 18px rgba(3, 105, 161, 0.25);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-3d-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(2, 132, 199, 0.5), 0 12px 22px rgba(3, 105, 161, 0.35);
+}
+
+.btn-3d-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(2, 132, 199, 0.2), 0 4px 8px rgba(3, 105, 161, 0.2);
+}
+
+.cyber-grid-3d {
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: gridScan3d 6s linear infinite;
+  transform: perspective(350px) rotateX(68deg);
+  transform-origin: center bottom;
+}
